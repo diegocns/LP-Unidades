@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6B7FF6');</script>
+  <!-- End Google Tag Manager -->
+
+  <title>Coco Bambu Brasília | Unidades, promoções e eventos</title>
+  <meta name="description" content="Encontre a unidade Coco Bambu mais perto de você em Brasília e confira as novidades: promoções, eventos, menu e o app Coco Bambu.">
+  <link rel="canonical" href="https://unidades.cocobambubsb.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Coco Bambu Brasília">
+  <meta property="og:description" content="Encontre a unidade mais perto de você e confira as novidades.">
+  <meta property="og:image" content="https://unidades.cocobambubsb.com.br/assets/hero-1600.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1c1614">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Tokens iguais aos da LP do Réveillon e das LPs de eventos (cocobambubsb.com.br) */
+    :root {
+      --background: oklch(15% .012 45);
+      --foreground: oklch(96% .012 80);
+      --ink: oklch(11% .012 50);
+      --gold: oklch(78% .12 80);
+      --gold-soft: oklch(88% .07 85);
+      --card: oklch(18% .014 50 / .72);
+      --secondary: oklch(22% .014 50);
+      --muted-foreground: oklch(72% .02 80);
+      --border: oklch(78% .12 80 / .18);
+      /* Degradê da marca: grafite para vinho (#2B2B2B → #6D2212) */
+      --gradient-page: linear-gradient(115deg, oklch(17% .008 50) 0%, oklch(20% .02 40) 40%, oklch(27% .08 32) 80%, oklch(32% .11 31) 100%);
+      --gradient-gold: linear-gradient(135deg, oklch(85% .13 85), oklch(70% .13 70));
+      --shadow-elegant: 0 30px 80px -30px oklch(0% 0 0 / .7);
+      --shadow-glow: 0 0 60px oklch(78% .12 80 / .25);
+      --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+      --font-serif: "Axiforma", "Sora", ui-sans-serif, system-ui, sans-serif;
+      --container: 72rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; background: var(--background); }
+    body {
+      position: relative;
+      min-height: 100vh;
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; }
+    .gold-text { background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .9rem;
+      font-size: 11px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+    .eyebrow::before, .eyebrow::after { content: ""; width: 2rem; height: 1px; background: var(--gold); opacity: .7; }
+
+    /* Fundo fixo da página: degradê + luz que segue o mouse + partículas + folhas de coqueiro */
+    .ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--gradient-page); pointer-events: none; }
+    .ambient::before {
+      content: ""; position: absolute; width: 60rem; height: 60rem; left: -25rem; top: -30rem;
+      background: radial-gradient(circle, oklch(78% .12 80 / .10), transparent 62%);
+    }
+    .ambient .spot {
+      position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease;
+      background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 30%), oklch(80% .12 80 / .11), transparent 65%);
+    }
+    .ambient.lit .spot { opacity: 1; }
+    #particles { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .palm { position: absolute; width: min(46vw, 560px); height: auto; color: var(--gold); opacity: .2; }
+    .palm g { transform-box: view-box; animation: sway 9s ease-in-out infinite; }
+    .palm.tl { left: -4%; top: -6%; }
+    .palm.tl g { transform-origin: 0 0; }
+    .palm.br { right: -4%; bottom: -6%; transform: rotate(180deg); }
+    .palm.br g { transform-origin: 0 0; animation-duration: 11s; animation-delay: -3s; }
+    @keyframes sway { 0%, 100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.6deg); } }
+    @media (max-width: 767px) { .palm { width: 72vw; opacity: .14; } .palm.br { bottom: -10%; } }
+
+    /* Topo */
+    .hero { position: relative; padding: 52px 0 24px; text-align: center; }
+    .hero .logo { height: 34px; width: auto; margin: 0 auto 1.6rem; }
+    .hero h1 { font-size: clamp(2.2rem, 8.5vw, 3.9rem); margin: 1rem 0 .8rem; }
+    .hero .lead { font-size: 1rem; color: oklch(96% .012 80 / .8); max-width: 26rem; margin: 0 auto; }
+    @media (min-width: 768px) { .hero { padding: 64px 0 28px; } .hero .logo { height: 40px; } .hero .lead { font-size: 1.1rem; max-width: 34rem; } }
+    .rise { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+    /* Botões principais: uma coluna */
+    .links { display: grid; gap: .8rem; max-width: 35rem; margin: 2rem auto 0; text-align: left; }
+    .link {
+      position: relative; overflow: hidden; isolation: isolate;
+      display: flex; align-items: center; gap: .9rem; min-height: 60px; padding: .85rem 1.25rem .85rem 1.15rem;
+      border-radius: 999px; border: 1px solid oklch(78% .12 80 / .4);
+      background: oklch(16% .012 45 / .55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    /* Brilho que acompanha o mouse dentro do botão */
+    .link::before {
+      content: ""; position: absolute; z-index: -1; inset: 0; opacity: 0; transition: opacity .3s ease;
+      background: radial-gradient(180px circle at var(--x, 50%) var(--y, 50%), oklch(80% .12 80 / .22), transparent 70%);
+    }
+    .link:hover::before { opacity: 1; }
+    .link:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 14px 40px -18px oklch(78% .12 80 / .5); }
+    .link:active { transform: scale(.985); }
+    .link .ic { flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: oklch(78% .12 80 / .14); color: var(--gold-soft); transition: transform .3s ease; }
+    .link:hover .ic { transform: rotate(-8deg) scale(1.06); }
+    .link .ic svg { width: 19px; height: 19px; }
+    .link .label { flex: 1; min-width: 0; }
+    .link .go { flex: none; width: 18px; height: 18px; color: var(--gold-soft); transition: transform .25s ease; }
+    .link:hover .go { transform: translateX(4px); }
+
+    .link.featured { min-height: 66px; border: 0; background: var(--gradient-gold); color: var(--ink); box-shadow: var(--shadow-glow); font-size: 15px; }
+    .link.featured::before { background: radial-gradient(200px circle at var(--x, 50%) var(--y, 50%), oklch(100% 0 0 / .35), transparent 70%); }
+    .link.featured::after {
+      content: ""; position: absolute; z-index: -1; inset: 0;
+      background: linear-gradient(105deg, transparent 35%, oklch(100% 0 0 / .5) 50%, transparent 65%);
+      transform: translateX(-120%); animation: shine 4.5s ease-in-out infinite;
+    }
+    @keyframes shine { 0%, 62% { transform: translateX(-120%); } 82%, 100% { transform: translateX(120%); } }
+    .link.featured:hover { box-shadow: 0 0 80px oklch(78% .12 80 / .45); }
+    .link.featured .ic { background: oklch(11% .012 50 / .12); color: var(--ink); }
+    .link.featured .go { color: var(--ink); }
+
+    /* Unidades */
+    .section { padding: 44px 0 64px; }
+    @media (min-width: 1024px) { .section { padding: 56px 0 80px; } }
+    .section-head { text-align: center; margin: 0 auto 1.75rem; }
+    .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin-top: .8rem; }
+
+    .units { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .units { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
+    @media (min-width: 1024px) { .units { grid-template-columns: repeat(3, 1fr); } }
+    .unit {
+      position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 2;
+      background: var(--secondary); border: 1px solid var(--border);
+      transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px));
+    }
+    .unit.ready { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease; }
+    .unit.ready.tilting { transition: transform .12s ease-out, border-color .3s ease, box-shadow .3s ease; }
+    .unit:hover { border-color: oklch(78% .12 80 / .6); box-shadow: var(--shadow-elegant), 0 0 0 1px oklch(78% .12 80 / .15); }
+    .unit-media { position: absolute; inset: 0; }
+    /* Nome e botão por cima da foto */
+    .unit-body {
+      position: absolute; z-index: 4; left: 0; right: 0; bottom: 0;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: .75rem;
+      padding: 2.75rem 1rem 1rem 1.15rem; pointer-events: none;
+      background: linear-gradient(180deg, transparent, oklch(10% .01 50 / .72) 45%, oklch(10% .01 50 / .9));
+    }
+    .unit-body h3 { font-size: 1.3rem; letter-spacing: -.02em; text-shadow: 0 2px 12px oklch(0% 0 0 / .5); }
+    .unit-body h3 small { display: block; font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .35rem; }
+    .btn {
+      pointer-events: auto; flex: none; display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+      min-height: 44px; padding: .65rem 1.05rem; border-radius: 999px; cursor: pointer;
+      font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+      background: var(--gradient-gold); color: var(--ink);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 0 40px oklch(78% .12 80 / .4); }
+    .btn svg { width: 16px; height: 16px; transition: transform .2s ease; }
+    .btn:hover svg { transform: translateX(3px); }
+
+    /* Carrossel manual */
+    .carousel { position: absolute; inset: 0; }
+    .track {
+      display: flex; height: 100%; overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    .track::-webkit-scrollbar { display: none; }
+    .slide { position: relative; flex: 0 0 100%; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .unit:hover .slide img { transform: scale(1.05); }
+    .dots {
+      position: absolute; z-index: 5; top: .7rem; left: .7rem; display: flex; gap: 0; padding: 0 .25rem;
+      border-radius: 999px; background: oklch(10% .01 50 / .55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .dots button { width: 20px; height: 26px; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+    .dots button::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: oklch(96% .012 80 / .5); transition: width .25s ease, background .25s ease; }
+    .dots button[aria-current="true"]::before { width: 16px; background: var(--gold); }
+    .arrow {
+      position: absolute; z-index: 5; top: 40%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid oklch(78% .12 80 / .45); background: oklch(10% .01 50 / .55); color: var(--foreground);
+      display: none; place-items: center; cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .arrow:hover { background: oklch(78% .12 80 / .35); border-color: var(--gold); transform: translateY(-50%) scale(1.08); }
+    .arrow.prev { left: .7rem; } .arrow.next { right: .7rem; }
+    .arrow svg { width: 17px; height: 17px; }
+    @media (hover: hover) and (min-width: 768px) { .arrow { display: grid; } }
+
+    /* Rodapé */
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 0 2rem; }
+    footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+    footer img { height: 22px; width: auto; opacity: .85; }
+    footer p { font-size: 12px; color: var(--muted-foreground); }
+    @media (max-width: 479px) { footer .container { flex-direction: column; text-align: center; } }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .unit.reveal.in { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .rise { animation: none; }
+      .palm g, .link.featured::after { animation: none; }
+      .link, .btn, .link .go, .link .ic, .slide img { transition: none; }
+      .unit:hover .slide img { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6B7FF6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-cheers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 4.2 9 2.8l1.2 4.7a3.2 3.2 0 0 1-2.3 3.9l-.4.1a3.2 3.2 0 0 1-3.9-2.3z"/><path d="m7.5 11.6 1.6 6.1M6.6 18.6l5-1.3"/><path d="M20.4 4.2 15 2.8l-1.2 4.7a3.2 3.2 0 0 0 2.3 3.9l.4.1a3.2 3.2 0 0 0 3.9-2.3z"/><path d="m16.5 11.6-1.6 6.1M17.4 18.6l-5-1.3"/><path d="M4 6.4l5.6-1.5M20 6.4l-5.6-1.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 7.5v6M9.5 11l2.5 2.5 2.5-2.5M10.5 18.5h3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="m12 11.8.9 1.9 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 14l2-.3z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.3 5 7.8 4.5 3 4.5v14c4.8 0 7.3.5 9 2 1.7-1.5 4.2-2 9-2v-14c-4.8 0-7.3.5-9 2z"/><path d="M12 6.5v14"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.6V4.5a1 1 0 0 1 1-1h8.1l8 8a1.5 1.5 0 0 1 0 2.1l-7 7a1.5 1.5 0 0 1-2.1 0z"/><path d="m9.5 15 5-5"/><circle cx="10" cy="10.5" r=".9"/><circle cx="14" cy="14.5" r=".9"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+  </svg>
+
+  <!-- Fundo animado (decorativo) -->
+  <div class="ambient" aria-hidden="true">
+    <canvas id="particles"></canvas>
+    <svg class="palm tl" viewBox="0 0 600 600"><g></g></svg>
+    <svg class="palm br" viewBox="0 0 600 600"><g></g></svg>
+    <div class="spot"></div>
+  </div>
+
+  <main>
+    <!-- TOPO + BOTÕES PRINCIPAIS -->
+    <section class="hero">
+      <div class="container">
+        <img class="logo rise" src="assets/logo.webp" alt="Coco Bambu" width="170" height="34">
+        <span class="eyebrow rise" style="--d:.08s">Brasília · DF</span>
+        <h1 class="rise" style="--d:.14s">Coco Bambu em <span class="gold-text">Brasília</span></h1>
+        <p class="lead rise" style="--d:.2s">Encontre a unidade mais perto de você e confira as novidades.</p>
+
+        <nav class="links" aria-label="Links principais">
+          <a class="link featured rise" style="--d:.28s" href="https://reveillon.cocobambubsb.com.br/" data-link="reveillon">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-cheers"/></svg></span>
+            <span class="label">Réveillon 2027</span>
+            <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="link rise" style="--d:.34s" href="https://sys.cocobambu.com/WC8xk" data-link="app">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <span class="label">Baixe nosso app</span>
+            <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="link rise" style="--d:.4s" href="https://eventos.cocobambubsb.com.br/" data-link="eventos">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+            <span class="label">Eventos</span>
+            <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="link rise" style="--d:.46s" href="https://homepage.cocobambu.com/brasilia-menu-executivo" data-link="menu">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-book"/></svg></span>
+            <span class="label">Menu Executivo</span>
+            <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="link rise" style="--d:.52s" href="https://promo.cocobambu.com/promo-brasilia" data-link="promocoes">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-percent"/></svg></span>
+            <span class="label">Promoções</span>
+            <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- UNIDADES -->
+    <section class="section" id="unidades">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Escolha sua unidade</span>
+          <h2>Nossas <span class="gold-text">unidades</span></h2>
+        </div>
+
+        <div class="units">
+          <article class="unit reveal" data-unit="lago-sul">
+            <div class="unit-media">
+              <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Fotos do Coco Bambu Lago Sul">
+                <div class="track">
+                  <figure class="slide"><img src="assets/lago-sul-1-800.webp" alt="Coco Bambu Lago Sul" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/lago-sul-2-800.webp" alt="Coco Bambu Lago Sul: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/lago-sul-3-800.webp" alt="Coco Bambu Lago Sul: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/lago-sul-4-800.webp" alt="Coco Bambu Lago Sul: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/lago-sul-5-800.webp" alt="Coco Bambu Lago Sul: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                </div>
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3><small>Coco Bambu</small>Lago Sul</h3>
+              <a class="btn" href="https://qr.cocobambu.com/lago-sul" data-link="unidade_lago_sul">Acessar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <article class="unit reveal" data-unit="brasilia-shopping">
+            <div class="unit-media">
+              <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Fotos do Coco Bambu Brasília Shopping">
+                <div class="track">
+                  <figure class="slide"><img src="assets/brasilia-shopping-1.webp" alt="Fachada do Coco Bambu Brasília Shopping" loading="lazy" decoding="async" width="962" height="641"></figure>
+                  <figure class="slide"><img src="assets/brasilia-shopping-2.webp" alt="Coco Bambu Brasília Shopping: ambiente" loading="lazy" decoding="async" width="690" height="460"></figure>
+                  <figure class="slide"><img src="assets/brasilia-shopping-3.webp" alt="Coco Bambu Brasília Shopping: salão" loading="lazy" decoding="async" width="690" height="460"></figure>
+                  <figure class="slide"><img src="assets/brasilia-shopping-4.webp" alt="Coco Bambu Brasília Shopping: ambiente" loading="lazy" decoding="async" width="690" height="460"></figure>
+                  <figure class="slide"><img src="assets/brasilia-shopping-5.webp" alt="Coco Bambu Brasília Shopping: ambiente" loading="lazy" decoding="async" width="690" height="460"></figure>
+                </div>
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3><small>Coco Bambu</small>Brasília Shopping</h3>
+              <a class="btn" href="https://qr.cocobambu.com/bsb" data-link="unidade_brasilia_shopping">Acessar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <article class="unit reveal" data-unit="aguas-claras">
+            <div class="unit-media">
+              <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Fotos do Coco Bambu Águas Claras">
+                <div class="track">
+                  <figure class="slide"><img src="assets/aguas-claras-1-800.webp" alt="Coco Bambu Águas Claras: espaço adega" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/aguas-claras-2-800.webp" alt="Coco Bambu Águas Claras: salão principal" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/aguas-claras-3-800.webp" alt="Coco Bambu Águas Claras: salão Mucuripe" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/aguas-claras-4-800.webp" alt="Coco Bambu Águas Claras: salão Canoa" loading="lazy" decoding="async" width="800" height="533"></figure>
+                </div>
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3><small>Coco Bambu</small>Águas Claras</h3>
+              <a class="btn" href="https://qr.cocobambu.com/aguas-claras" data-link="unidade_aguas_claras">Acessar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <article class="unit reveal" data-unit="parkshopping">
+            <div class="unit-media">
+              <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Fotos do Coco Bambu ParkShopping">
+                <div class="track">
+                  <figure class="slide"><img src="assets/parkshopping-1-800.webp" alt="Coco Bambu ParkShopping" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/parkshopping-2-800.webp" alt="Coco Bambu ParkShopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/parkshopping-3-800.webp" alt="Coco Bambu ParkShopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/parkshopping-4-800.webp" alt="Coco Bambu ParkShopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                </div>
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3><small>Coco Bambu</small>ParkShopping</h3>
+              <a class="btn" href="https://qr.cocobambu.com/parkshopping" data-link="unidade_parkshopping">Acessar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <article class="unit reveal" data-unit="iguatemi">
+            <div class="unit-media">
+              <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Fotos do Coco Bambu Iguatemi Shopping">
+                <div class="track">
+                  <figure class="slide"><img src="assets/iguatemi-1-800.webp" alt="Coco Bambu Iguatemi Shopping" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/iguatemi-2-800.webp" alt="Coco Bambu Iguatemi Shopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/iguatemi-3-800.webp" alt="Coco Bambu Iguatemi Shopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/iguatemi-4-800.webp" alt="Coco Bambu Iguatemi Shopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                  <figure class="slide"><img src="assets/iguatemi-5-800.webp" alt="Coco Bambu Iguatemi Shopping: ambiente" loading="lazy" decoding="async" width="800" height="533"></figure>
+                </div>
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3><small>Coco Bambu</small>Iguatemi Shopping</h3>
+              <a class="btn" href="https://qr.cocobambu.com/iguatemi-bsb" data-link="unidade_iguatemi">Acessar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <article class="unit reveal" data-unit="taguatinga">
+            <div class="unit-media">
+              <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Fotos do Coco Bambu Taguatinga Shopping">
+                <div class="track">
+                  <figure class="slide"><img src="assets/taguatinga-1.webp" alt="Fachada do Coco Bambu Taguatinga Shopping" loading="lazy" decoding="async" width="962" height="641"></figure>
+                  <figure class="slide"><img src="assets/taguatinga-2.webp" alt="Coco Bambu Taguatinga Shopping: ambiente" loading="lazy" decoding="async" width="690" height="460"></figure>
+                  <figure class="slide"><img src="assets/taguatinga-3.webp" alt="Coco Bambu Taguatinga Shopping: ambiente" loading="lazy" decoding="async" width="690" height="460"></figure>
+                  <figure class="slide"><img src="assets/taguatinga-4.webp" alt="Coco Bambu Taguatinga Shopping: ambiente" loading="lazy" decoding="async" width="690" height="460"></figure>
+                  <figure class="slide"><img src="assets/taguatinga-5.webp" alt="Coco Bambu Taguatinga Shopping: espaço kids" loading="lazy" decoding="async" width="690" height="460"></figure>
+                </div>
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3><small>Coco Bambu</small>Taguatinga Shopping</h3>
+              <a class="btn" href="https://qr.cocobambu.com/taguatinga" data-link="unidade_taguatinga">Acessar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <img src="assets/logo.webp" alt="Coco Bambu" width="110" height="22" loading="lazy">
+      <p>© <span id="year">2026</span> Coco Bambu Brasília</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    window.dataLayer = window.dataLayer || [];
+    function track(event, params) {
+      window.dataLayer.push(Object.assign({ event: event }, params || {}));
+    }
+
+    // Clique em qualquer botão: evento "click_link" no GTM com o id do botão e o destino
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-link]');
+      if (!a) return;
+      var label = a.querySelector('.label');
+      var text = label ? label.textContent : a.closest('.unit').querySelector('h3').lastChild.textContent;
+      track('click_link', { link_id: a.dataset.link, link_text: text.trim(), link_url: a.href });
+    });
+
+    // Folhas de coqueiro desenhadas em linha: hastes curvas com folíolos dos dois lados
+    (function drawPalms() {
+      var NS = 'http://www.w3.org/2000/svg';
+      var fronds = [
+        { a: .05, len: 520, bend: .55 }, { a: .38, len: 560, bend: .5 }, { a: .72, len: 540, bend: .45 },
+        { a: 1.05, len: 500, bend: .4 }, { a: 1.38, len: 430, bend: .32 }
+      ];
+      function frond(f) {
+        var d = '', x = 0, y = 0, ang = f.a, steps = 34, step = f.len / steps, pts = [];
+        for (var i = 0; i <= steps; i++) {
+          pts.push([x, y, ang]);
+          x += Math.cos(ang) * step; y += Math.sin(ang) * step; ang += f.bend / steps;
+        }
+        d += 'M0 0' + pts.map(function (p) { return 'L' + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join('');
+        for (var k = 4; k <= steps; k += 1) {
+          var p = pts[k], t = k / steps, L = 95 * Math.sin(Math.PI * Math.min(1, t * 1.15)) * (1 - t * .35) + 8;
+          [-1, 1].forEach(function (side) {
+            var la = p[2] + side * 1.05 + .35;
+            var ex = p[0] + Math.cos(la) * L, ey = p[1] + Math.sin(la) * L;
+            var cx = p[0] + Math.cos(la - side * .25) * L * .55, cy = p[1] + Math.sin(la - side * .25) * L * .55;
+            d += 'M' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + 'Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + ex.toFixed(1) + ' ' + ey.toFixed(1);
+          });
+        }
+        var path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', d);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', 'currentColor');
+        path.setAttribute('stroke-width', '1.4');
+        path.setAttribute('stroke-linecap', 'round');
+        return path;
+      }
+      document.querySelectorAll('.palm g').forEach(function (g) { fronds.forEach(function (f) { g.appendChild(frond(f)); }); });
+    })();
+
+    // Partículas douradas flutuando no fundo (levemente deslocadas pelo mouse)
+    (function particles() {
+      var canvas = document.getElementById('particles');
+      var ctx = canvas.getContext('2d');
+      var dpr = Math.min(window.devicePixelRatio || 1, 2), w, h, dots = [], mx = 0, my = 0, ox = 0, oy = 0, running = true;
+      function size() {
+        w = canvas.clientWidth; h = canvas.clientHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var n = Math.round(Math.min(56, Math.max(22, w * h / 26000)));
+        dots = [];
+        for (var i = 0; i < n; i++) dots.push({ x: Math.random() * w, y: Math.random() * h, r: .6 + Math.random() * 1.6, v: .08 + Math.random() * .22, z: .3 + Math.random(), p: Math.random() * 6.28 });
+      }
+      function frame(t) {
+        ctx.clearRect(0, 0, w, h);
+        ox += (mx - ox) * .05; oy += (my - oy) * .05;
+        dots.forEach(function (d) {
+          if (!reduceMotion) { d.y -= d.v; if (d.y < -10) { d.y = h + 10; d.x = Math.random() * w; } }
+          var a = .25 + .35 * (reduceMotion ? .5 : (Math.sin(t / 900 + d.p) + 1) / 2);
+          var x = d.x - ox * 18 * d.z, y = d.y - oy * 18 * d.z;
+          ctx.beginPath(); ctx.arc(x, y, d.r, 0, 6.283);
+          ctx.fillStyle = 'rgba(232, 196, 124,' + a.toFixed(3) + ')';
+          ctx.shadowColor = 'rgba(232, 196, 124, .8)'; ctx.shadowBlur = 6 * d.r;
+          ctx.fill();
+        });
+        if (running && !reduceMotion) requestAnimationFrame(frame);
+      }
+      size();
+      window.addEventListener('resize', size);
+      if (finePointer) window.addEventListener('pointermove', function (e) { mx = e.clientX / w - .5; my = e.clientY / h - .5; }, { passive: true });
+      document.addEventListener('visibilitychange', function () {
+        var was = running; running = !document.hidden;
+        if (running && !was && !reduceMotion) requestAnimationFrame(frame);
+      });
+      requestAnimationFrame(frame);
+    })();
+
+    // Luz dourada que segue o mouse pelo fundo
+    if (finePointer && !reduceMotion) {
+      var ambient = document.querySelector('.ambient'), raf = 0, px = 0, py = 0;
+      window.addEventListener('pointermove', function (e) {
+        px = e.clientX; py = e.clientY;
+        if (raf) return;
+        raf = requestAnimationFrame(function () {
+          raf = 0;
+          ambient.style.setProperty('--mx', px + 'px');
+          ambient.style.setProperty('--my', py + 'px');
+          ambient.classList.add('lit');
+        });
+      }, { passive: true });
+      document.documentElement.addEventListener('pointerleave', function () { ambient.classList.remove('lit'); });
+    }
+
+    // Brilho que acompanha o mouse dentro dos botões
+    if (finePointer) {
+      document.querySelectorAll('.link').forEach(function (el) {
+        el.addEventListener('pointermove', function (e) {
+          var r = el.getBoundingClientRect();
+          el.style.setProperty('--x', (e.clientX - r.left) + 'px');
+          el.style.setProperty('--y', (e.clientY - r.top) + 'px');
+        });
+      });
+    }
+
+    // Entrada em cascata dos cartões ao rolar
+    var revealEls = document.querySelectorAll('.reveal');
+    function show(el, delay) {
+      setTimeout(function () {
+        el.classList.add('in');
+        if (el.classList.contains('unit')) setTimeout(function () { el.classList.add('ready'); }, 750);
+      }, delay);
+    }
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var io = new IntersectionObserver(function (entries) {
+        var visible = entries.filter(function (en) { return en.isIntersecting; });
+        visible.forEach(function (en, i) { show(en.target, i * 90); io.unobserve(en.target); });
+      }, { rootMargin: '0px 0px -6% 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { show(el, 0); });
+    }
+
+    // Inclinação 3D leve dos cartões seguindo o mouse
+    if (finePointer && !reduceMotion) {
+      document.querySelectorAll('.unit').forEach(function (card) {
+        card.addEventListener('pointermove', function (e) {
+          if (!card.classList.contains('ready')) return;
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+          card.classList.add('tilting');
+          card.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg');
+          card.style.setProperty('--ty', '-4px');
+        });
+        card.addEventListener('pointerleave', function () {
+          card.classList.remove('tilting');
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--ry', '0deg');
+          card.style.setProperty('--ty', '0px');
+        });
+      });
+    }
+
+    // Carrossel infinito e só manual: cópias da última/primeira foto nas pontas;
+    // ao parar numa cópia, salta sem animação para a foto real.
+    document.querySelectorAll('[data-carousel]').forEach(function (car) {
+      var rail = car.querySelector('.track');
+      var total = rail.children.length;
+      if (total < 2) return;
+      var unitName = car.closest('.unit').dataset.unit;
+
+      var headClone = rail.lastElementChild.cloneNode(true);
+      var tailClone = rail.firstElementChild.cloneNode(true);
+      [headClone, tailClone].forEach(function (c) { c.setAttribute('aria-hidden', 'true'); });
+      rail.insertBefore(headClone, rail.firstElementChild);
+      rail.appendChild(tailClone);
+
+      var dots = document.createElement('div');
+      dots.className = 'dots';
+      for (var i = 0; i < total; i++) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Foto ' + (i + 1) + ' de ' + total);
+        b.dataset.i = i;
+        dots.appendChild(b);
+      }
+      var prev = document.createElement('button');
+      prev.className = 'arrow prev'; prev.type = 'button'; prev.setAttribute('aria-label', 'Foto anterior');
+      prev.innerHTML = '<svg aria-hidden="true"><use href="#i-left"/></svg>';
+      var next = document.createElement('button');
+      next.className = 'arrow next'; next.type = 'button'; next.setAttribute('aria-label', 'Próxima foto');
+      next.innerHTML = '<svg aria-hidden="true"><use href="#i-right"/></svg>';
+      car.append(dots, prev, next);
+
+      // Posições no trilho: 0 = cópia da última, 1..total = fotos reais, total+1 = cópia da primeira
+      var pos = 1, current = -1, seen = false;
+      function width() { return rail.clientWidth; }
+      function jump(p) { pos = p; rail.scrollTo({ left: p * width(), behavior: 'auto' }); }
+      function go(p) { pos = p; rail.scrollTo({ left: p * width(), behavior: reduceMotion ? 'auto' : 'smooth' }); }
+      function render() {
+        var real = ((pos - 1) % total + total) % total;
+        if (real === current) return;
+        current = real;
+        Array.prototype.forEach.call(dots.children, function (d, k) { d.setAttribute('aria-current', k === current ? 'true' : 'false'); });
+      }
+      function settle() {
+        pos = Math.round(rail.scrollLeft / width());
+        if (pos <= 0) jump(total);
+        else if (pos >= total + 1) jump(1);
+        render();
+      }
+      var raf, settleTimer;
+      rail.addEventListener('scroll', function () {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () { pos = Math.round(rail.scrollLeft / width()); render(); });
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(settle, 140);
+      }, { passive: true });
+      window.addEventListener('resize', function () { jump(pos); });
+
+      function userMoved() { if (!seen) { seen = true; track('carousel_swipe', { unidade: unitName }); } }
+      dots.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { go(+b.dataset.i + 1); userMoved(); } });
+      prev.addEventListener('click', function () { go(pos - 1); userMoved(); });
+      next.addEventListener('click', function () { go(pos + 1); userMoved(); });
+      rail.addEventListener('touchmove', userMoved, { passive: true, once: true });
+
+      jump(1);
+      render();
+    });
+  })();
+  </script>
+</body>
+</html>
